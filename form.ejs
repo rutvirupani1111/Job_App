@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        fieldset
+        {
+            width: fit-content;
+        }
+        h4
+        {
+            text-align: left;
+        }
+        table tr td
+        {
+            padding: 10px;
+        }
+        table
+        {
+            box-shadow: inset 0 -3em 3em rgba(91, 89, 209, 0.3),
+                        0 0 0 2px rgb(255, 255, 255),
+                        0.3em 0.3em 1em rgba(233, 175, 127, 0.6); 
+                        /* /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);  */
+            /* background-image: linear-gradient(rgb(82, 80, 196), yellow, rgb(228, 163, 133)); */
+        }
+        .Btn
+        {
+            font-size: large;
+            margin: 2%;
+            padding: 10px;
+
+            border-radius: 20px; 
+            box-shadow: 5px 5px 5px #eee;
+        }
+
+        .err_msg{
+            background-color: red;
+            color: white;
+            font-weight: 300;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+    </style>
+</head>
+<body>
+    <h1><center>Job Application Form</center></h1><br><br>
+    <form name="form" autocomplete="on" onsubmit="return validateForm()" onreset="rst()" id="form" method="post">
+        <center>
+        <fieldset>
+            <legend><b>Basic Details</b></legend>
+            <table>
+                    <tr>
+                    <td>
+                        <label for="FirstName">First Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="FirstName" placeholder="Enter your Name" autofocus tabindex="1">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <br/>
+                        <span class="err_msg" id="spFirstName"></span>
+                    </td>
+                    <td>
+                        <label for="LastName">Last Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="LastName" placeholder="Enter your Surname"  tabindex="2">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <br/>
+                        <span class="err_msg" id="spLastName"></span>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Designation">Designation:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="Designation"  placeholder="Enter your Designation">
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spDesignation"></span>
+                        </td>
+                        <td>
+                            <label for="Email_ID">Email-ID:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="Email_ID"  placeholder="Ex : abc@gmail.com" tabindex="3">
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spEmail_ID"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="Add1">Address-1:</label>
+                        </td>
+                        <td>
+                            <textarea name="Add1" id="Add1" cols="24" rows="2" placeholder="Enter your Building/Society Details" wrap="hard"></textarea>
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spAdd1"></span>
+                        </td>
+                        <td>
+                            <label for="Add2">Address-2:</label>
+                        </td>
+                        <td>
+                            <textarea name="Add2" id="Add2" cols="24" rows="2" placeholder="Enter your Landmark Details" wrap="soft"></textarea>
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spAdd2"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="City">City:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="City" name="City" dir="rtl" placeholder="Enter your City">
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spCity"></span>
+                        </td>
+                        <td>
+                            <label for="Phone_No">Phone No.:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="Phone_No" name="Phone_No" autocomplete="off" placeholder="Ex : 7698800789">
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spPhone_No"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="State">State:</label>
+                        </td>
+                        <td>
+                            <select name="State" id="State">
+                                <option value="">Select your State</option>                                
+                                <!-- <option></option> -->
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            </select>
+
+                            <br/>
+                            <span class="err_msg" id="spState"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Gender">Gender:</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="Gender" id="Female" value="F">
+                            <label for="Female">Female</label>
+                            <input type="radio" name="Gender" id="Male" value="M    ">
+                            <label for="Male">Male</label>
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+
+                            <br/>
+                            <span class="err_msg" id="spGender"></span>
+                        </td>
+                        <td>
+                            <label for="Zip_Code">Zip-Code:</label>
+                            </td>
+                            <td>
+                                <input type="number" id="Zip_Code" name="Zip_Code" maxlength="6"  placeholder="Ex : 394210">
+                                <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                                <br/>
+                                <span class="err_msg" id="spZip_Code"></span>
+                            </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="Rel_Status">Relationship Status:</label>
+                        </td>
+                        <td>
+                            <select name="Rel_Status" id="Rel_Status">
+                                <option value="">Select your Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <i class="fa-solid fa-circle-check"></i>
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                            </select>
+                            <br/>
+                            <span class="err_msg" id="spRel_Status"></span>
+                        </td>
+                        <td>
+                            <label for="DOB">DOB:</label>
+                        </td>
+                        <td>
+                            <!-- <input type="date" name="DOB" max="2003-12-31"> -->
+                            <!-- Restricts the person to apply below age 20 -->
+                            <input type="text" name="dt" id="dt" placeholder="01"> / <input type="text" id="mnth" name="mnth" placeholder="01"> / <input type="text" id="yr" name="yr" placeholder="2000">
+                            <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                            <br/>
+                            <span class="err_msg" id="spdt"></span>
+                        </td>
+                    </tr>   
+                </center>
+            </table>
+    </fieldset>
+
+    <br/><br/>
+        <fieldset style="width: max-content;">
+            <legend><b>Education Details</b></legend>
+                <!-- <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </table> -->
+            <h4 style="text-align: left;">SSC Result</h4>
+            <table style="width: 100%;">
+            <tr>
+                <td>
+                    <label for="Course[]">Name of the Board:</label>
+                </td>
+                <td>
+                    <select name="Course[]" id="Board">
+                        <option value="">Select your Board</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="GSEB">GSEB</option>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </select>
+                    <br/>
+                    <span class="err_msg" id="spBoard"></span>
+                </td>
+                <td>
+                    <label for="Passing_Yr">Passing Year:</label>
+                </td>
+                <td>
+                    <input type="number" name="Passing_Yr[]" maxlength="4" id="Passing_Yr">
+                    <br/>
+                    <span class="err_msg" id="spPassing_Yr"></span>
+                </td>
+                <td>
+                    <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                    <input type="number" name="Percentage[]" id="Percentage">
+                    <br/>
+                    <span class="err_msg" id="spPercentage"></span>
+                </td>
+            </tr>
+            </table>
+            <hr/>
+            <table style="width: 100%;">
+            <h4>HSC/Diploma Result</h4>
+            <tr>
+                <td>
+                    <label for="Course">Name of the Board:</label>
+                </td>
+                <td>
+                    <select name="Course[]" id="Board">
+                        <option value="">Select your Board</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="GSEB">GSEB</option>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </select>
+                    <br/>
+                    <span class="err_msg" id="spBoard"></span>
+                </td>
+                <td>
+                    <label for="Passing_Yr">Passing Year:</label>
+                </td>
+                <td>
+                    <input type="number" name="Passing_Yr[]" maxlength="4">
+                    <br/>
+                    <span class="err_msg" id="spPassing_Yr"></span>
+                </td>
+                <td>
+                    <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                    <input type="number" name="Percentage[]">
+                    <br/>
+                    <span class="err_msg" id="spPercentage"></span>
+                </td>
+            </tr>
+            </table>
+            
+            <hr/>
+            <table style="width: 100%;">
+            <h4>Bachelors Degree</h4>
+            <tr>
+                <td>
+                    <label for="Course[]">Course Name:</label>
+                </td>
+                <td>
+                    <select name="Course[]" id="Course">
+                        <option value="">Select your Course</option>
+                        <option value="BE">BE</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BCom">BCom</option>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </select>
+                    <br/>
+                    <span class="err_msg" id="spCourse"></span>
+                </td>
+                <!-- <td>
+                    <label for="University">University:</label>
+                </td>
+                <td>
+                    <input type="text" name="University">
+                </td> -->
+                <td>
+                    <label for="Passing_Yr">Passing Year:</label>
+                </td>
+                <td>
+                    <input type="number" name="Passing_Yr[]" maxlength="4">
+                </td>
+                <td>
+                    <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                    <input type="number" name="Percentage[]">
+                </td>
+            </tr>
+            </table>
+            <hr/>
+<table style="width: 100%;">
+            <h4>Masters Degree</h4>
+            <tr>
+                <td>
+                    <label for="Course">Course Name:</label>
+                </td>
+                <td>
+                    <select name="Course[]" id="Course">
+                        <option value="">Select your Course</option>
+                        <option value="ME">ME</option>
+                        <option value="MCA">MCA</option>
+                        <option value="MCom">MCom</option>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </select>
+                    <br/>
+                    <span class="err_msg" id="spCourse"></span>
+                </td>
+                <!-- <td>
+                    <label for="University">University:</label>
+                </td>
+                <td>
+                    <input type="text" name="University">
+                </td> -->
+                <td>
+                    <label for="Passing_Yr">Passing Year:</label>
+                </td>
+                <td>
+                    <input type="number" name="Passing_Yr[]" maxlength="4">
+                </td>
+                <td>
+                    <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                    <input type="number" name="Percentage[]">
+                </td>
+            </tr>
+</table>
+        </fieldset>
+        <br/><br/>
+
+        <fieldset style="width: max-content;" id="Work_Exp">
+            <legend><b>Work Experience</b></legend>
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <label for="Company">Company Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Company">
+                    </td>
+                    <td>
+                        <label for="Dsg">Designation:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Dsg" draggable="true">
+                    </td>
+                    <td>
+                        <label for="Exp_From">From:</label>
+                    </td>
+                    <td>
+                        <!-- <input type="date" name="Exp_From"> -->
+                        <input type="number" name="expfrdt" max="31" min="1"> / <input type="number" name="expfrmnth" min="1" max="12"> / <input type="number" name="expfryr" min="1995" max="2003">
+                    </td>
+                    <td>
+                        <label for="Exp_To">To:</label>
+                    </td>
+                    <td>
+                        <!-- <input type="date" name="Exp_To"> -->
+                        <input type="number" name="exptodt" max="31" min="1"> / <input type="number" name="exptomnth" min="1" max="12"> / <input type="number" name="exptoyr" min="1995" max="2003">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Company">Company Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Company">
+                    </td>
+                    <td>
+                        <label for="Dsg">Designation:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Dsg">
+                    </td>
+                    <td>
+                        <label for="Exp_From">From:</label>
+                    </td>
+                    <td>
+                        <!-- <input type="date" name="Exp_From"> -->
+                        <input type="number" name="expfrdt" max="31" min="1"> / <input type="number" name="expfrmnth" min="1" max="12"> / <input type="number" name="expfryr" min="1995" max="2003">
+                    </td>
+                    <td>
+                        <label for="Exp_To">To:</label>
+                    </td>
+                    <td>
+                        <!-- <input type="date" name="Exp_To"> -->
+                        <input type="number" name="exptodt" max="31" min="1"> / <input type="number" name="exptomnth" min="1" max="12"> / <input type="number" name="exptoyr" min="1995" max="2003">
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>
+                        <label for="Company">Company Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Company">
+                    </td>
+                    <td>
+                        <label for="Dsg">Designation:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Dsg">
+                    </td>
+                    <td>
+                        <label for="Exp_From">From:</label>
+                    </td>
+                    <td>
+                        <!-- <input type="date" name="Exp_From"> -->
+                        <input type="number" name="expfrdt" max="31" min="1"> / <input type="number" name="expfrmnth" min="1" max="12"> / <input type="number" name="yr" min="1995" max="2003">
+                    </td>
+                    <td>
+                        <label for="Exp_To">To:</label>
+                    </td>
+                    <td>
+                        <!-- <input type="date" name="Exp_To"> -->
+                        <input type="number" name="exptodt" max="31" min="1"> / <input type="number" name="exptomnth" min="1" max="12"> / <input type="number" name="exptoyr" min="1995" max="2003">
+                    </td>
+                </tr>
+            </table>
+    
+        </fieldset>
+        <br/><br/>
+
+        <fieldset>
+            <legend><b>Languages Known</b></legend>
+            <table>
+            <tr>
+                <td><input type="checkbox" name="Language[]" id="Hindi" value="Hindi" class="Lang"></td>
+                <td><label for="Hindi"> Hindi </label></td>
+                <td><input type="checkbox" name="Read[]" id="HRead" value="1" disabled class="rwsh"></td>
+                <td><label for="Read"> Read </label></td>
+                <td><input type="checkbox" name="Write[]" id="HWrite" value="1" disabled class="rwsh"></td>
+                <td><label for="Write"> Write </label></td>
+                <td><input type="checkbox" name="Speak[]" id="HSpeak" value="1" disabled class="rwsh"></td>
+                <td><label for="Speak"> Speak </label></td> 
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="Language[]" id="English" value="English" class="Lang"></td>
+                <td><label for="English"> English </label></td>
+                <td><input type="checkbox" name="Read[]" id="Read" value="1" disabled class="rwse"></td>
+                <td><label for="Read"> Read </label></td>
+                <td><input type="checkbox" name="Write[]" id="Write" value="1" disabled class="rwse"></td>
+                <td><label for="Write"> Write </label></td>
+                <td><input type="checkbox" name="Speak[]" id="Speak" value="1" disabled class="rwse"></td>
+                <td><label for="Speak"> Speak </label></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="Language[]" id="Gujarati" value="Gujarati" class="Lang">
+                </td>
+                <td>
+                    <label for="Gujarati"> Gujarati </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="Read[]" id="Read" value="1" disabled class="rwsg">
+                </td>
+                <td>
+                    <label for="Read"> Read </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="Write[]" id="Write" value="1" disabled class="rwsg">
+                </td>
+                <td>
+                    <label for="Write"> Write </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="Speak[]" id="Speak" value="1" disabled class="rwsg">
+                </td>
+                <td>
+                    <label for="Speak"> Speak </label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="Language[]" id="Spanish" value="Spanish" class="Lang"></td>
+                <td><label for="Spanish"> Spanish </label></td>
+                <td><input type="checkbox" name="Read[]" id="SRead" value="1" disabled class="rwss"></td>
+                <td><label for="Read"> Read </label></td>
+                <td><input type="checkbox" name="Write[]" id="SWrite" value="1" disabled class="rwss"></td>
+                <td><label for="Write"> Write </label></td>
+                <td><input type="checkbox" name="Speak[]" id="SSpeak" value="1" disabled class="rwss"></td>
+                <td><label for="Speak"> Speak </label></td> 
+            </tr>
+
+            </table> 
+        </fieldset>
+        <br/><br/>
+        <fieldset>
+            <legend><b>Technologies Known</b></legend>
+            <table>
+                <tr style="width: 4px;">
+                    <td>
+                        <input type="checkbox" name="Tech[]" value="PHP" id="PHP" class="Tech">
+                    </td>
+                    <td>
+                        <label for="PHP"> PHP    </label>
+                    </td>
+                    <td>
+                        <input type="radio" name="level0" id="Beginner" disabled value="BeginnWrite
+                        <label for="Mediator"> Mediator      </label>
+                    </td>
+                    <td>
+                        <input type="radio" name="level0" id="Expert" disabled value="Expert" class="bmeP">
+                    </td>
+                    <td>
+                        <label for="Expert"> Expert      </label>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td><input type="checkbox" name="Tech[]" id="MySQL" class="Tech" value="MySQL"></td>
+                    <td><label for="MySQL"> MySQL </label></td>
+                    <td><input type="radio" name="level1" id="Beginner" disabled value="Beginner" class="bmeM"></td>
+                    <td><label for="Beginner"> Beginner</label></td>
+                    <td><input type="radio" name="level1" id="Mediator" disabled value="Mediator" class="bmeM"></td>
+                    <td><label for="Mediator"> Mediator </label></td>
+                    <td><input type="radio" name="level1" id="Expert" disabled value="Expert" class="bmeM"></td>  
+                    <td><label for="Expert"> Expert</label></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="Tech[]" id="Laravel" class="Tech" value="Laravel"></td>
+                    <td>
+                        <label for="Laravel"> Laravel    </label>Write
+                    </td>
+                    <td>
+                        <input type="radio" name="level2" id="Mediator" disabled value="Mediator" class="bmeL">
+                    </td>
+                    <td>
+                        <label for="Mediator"> Mediator      </label>
+                    </td>
+                    <td>
+                        <input type="radio" name="level2" id="Expert" disabled value="Expert" class="bmeL">
+                    </td>
+                    <td>
+                        <label for="Expert"> Expert      </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" name="Tech[]" id="Oracle" class="Tech" value="Oracle">
+                    </td>
+                    <td>
+                        <label for="Oracle"> Oracle    </label>
+                    </td>
+                    <td>
+                        <input type="radio" name="level3" id="Beginner" disabled value="Beginner" class="bmeO">
+                    </td>
+                    <td>
+                        <label for="Beginner"> Beginner      </label>
+                    </td>
+                    <td>Write
+                    <td>
+                        <label for="Mediator"> Mediator      </label>
+                    </td>
+                    <td>
+                        <input type="radio" name="level3" id="Expert" disabled value="Expert" class="bmeO">
+                    </td>
+                    <td>
+                        <label for="Expert"> Expert      </label>
+                    </td>
+                </tr>
+    
+                </table> 
+        </fieldset>
+        <br/><br/>
+        <fieldset>
+            <legend><b>Referrence Contact</b></legend>
+
+            <table>
+                <tr>
+                    <td>
+                        <label for="Name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="RefName" id="RefName">
+                    </td>
+                    <td>
+                        <label for="Contact_No">Contact No.:</label>
+                    </td>   
+                    <td>
+                        <input type="number" name="RefContact_No" id="RefContact_No">
+                        <br/>
+                    <span class="err_msg" id="spRefC"></span>
+                    </td>   
+                    <td>Write
+                        <label for="Relation">Relation:</label>
+                    </td> 
+                    <td>
+                        <input type="text" name="RefRelation" id="RefRelation">
+                        <!-- <br/>
+                    <span class="err_msg" id="spPercentage"></span> -->
+                    </td> 
+                </tr>
+            
+                <tr>
+                    <td>
+                        <label for="Name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="RefName">
+                    </td>
+                    <td>
+                        <label for="Contact_No">Contact No.:</label>
+                    </td>   
+                    <td>
+                        <input type="number" name="RefContact_No">
+                    </td>   
+                    <td>
+                        <label for="Relation">Relation:</label>
+                    </td> 
+                    <td>
+                        <input type="text" name="RefRelation">
+                    </td> 
+                </tr>
+            </table>
+        </fieldset>
+        <br/><br/>
+
+        <fieldset>
+            <legend><b>Preferrences</b></legend>
+<table>
+            <tr>
+                <td rowspan="3">
+                    <label for="Pref_Loc">Preferred Location:</label>
+                <!-- </td>
+                    <td> -->
+                    <select name="Pref_Loc" id="Pref_Loc" multiple>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select>Write
+
+           <td>
+               <label for="Notice">Notice Period:</label>
+           <!-- </td> 
+            <td> -->
+               <input type="number" name="Notice" step="2">
+           </td>
+           <td rowspan="3">
+            <label for="Dept">Department:</label>
+            <!-- </td>
+                <td> -->
+                <select name="Dept" id="Dept">
+                <option value="">Select Department</option>
+                <option value="Development">Development</option>
+                <option value="Design">Design</option>
+                <option value="Marketing">Marketing</option>Write
+                <option value="HR" disabled>HR</option>
+            </select>
+            </td>
+
+        </tr>
+           <tr>
+            <!-- <td></td> -->
+           <td>
+            <label for="Exp_CTC">Expected CTC:</label>
+            <input type="number" name="Exp_CTC">
+            <!-- <td></td> -->
+           </tr>
+           <tr>
+            <!-- <td></td> -->
+            <td>
+                <label for="Cur_CTC">Current CTC:</label>
+                <input type="number" name="Cur_CTC">
+            </td>Write
+            
+           </tr>
+</table>
+        </fieldset>
+    </center>
+<br/><br/>
+    <center>
+        <input type="color" hidden><br/<br/>
+        
+            <input class="Btn" type="submit" name="Submit" value="Submit" style="color: green; font-family: 'Times New Roman', Times, serif;">
+            <input class="Btn" type="reset" name="Reset" value="Reset" style="color: red; font-family: 'Times New Roman', Times, serif;">
+            
+        </form>
+    </center>
+</body>
+<script>
+
+
+
+    // Get current date and time
+      const form = document.getElementById("form");Write
+      
+        // let cnt=0
+     // /Languages Known Validations 
+      let h_checkbox = document.getElementById("Hindi");
+                let e_checkbox = document.getElementById("English");
+                let g_checkbox = document.getElementById("Gujarati");
+                let s_checkbox = document.getElementById("Spanish");
+
+                h_checkbox.addEventListener("click",checkLang);
+                e_checkbox.addEventListener("click",checkLang);
+                g_checkbox.addEventListener("click",checkLang);
+                s_checkbox.addEventListener("click",checkLang);
+
+                function checkLang()
+                {
+                    const rwsh = document.getElementsByClassName("rwsh");
+                    const rwse = document.getElementsByClassName("rwse");
+                    const rwsg = document.getElementsByClassName("rwsg");
+                    const rwss = document.getElementsByClassName("rwss");Write
+
+                    isCheck(Hindi, rwsh);
+                    isCheck(English, rwse);
+                    isCheck(Gujarati, rwsg);
+                    isCheck(Spanish, rwss);
+                }
+        
+                function isCheck(lang, rws)
+                {
+                    if(lang.checked)
+                    {
+                        for(let i=0;i<rws.length;i++)
+                        {
+
+                            rws[i].disabled = false;
+                            // console.log(rws[i]);
+                            rws[i].value = 1;                            
+                        }
+                    }
+                    else
+                    {
+                        for(let i=0;i<rws.length;i++)
+                        {
+
+                            rws[i].disabled = true;
+                            rws[i].value = 0;
+                        }
+                    }
+
+                    // if(r)
+                }
+
+
+                ///Technologies Known Validations 
+
+                let php_checkbox = document.getElementById("PHP");
+                let mysql_checkbox = document.getElementById("MySQL");
+                let laravel_checkbox = document.getElementById("Laravel");
+                let oracle_checkbox = document.getElementById("Oracle");
+
+                php_checkbox.addEventListener("click",checkTech);
+                mysql_checkbox.addEventListener("click",checkTech);
+                laravel_checkbox.addEventListener("click",checkTech);
+                oracle_checkbox.addEventListener("click",checkTech);
+
+                function checkTech()
+                {
+                    const bmeP = document.getElementsByClassName("bmeP");
+                    const bmeM = document.getElementsByClassName("bmeM");
+                    const bmeL = document.getElementsByClassName("bmeL");
+                    const bmeO = document.getElementsByClassName("bmeO");
+
+                    isCheckT(PHP, bmeP);
+                    isCheckT(MySQL, bmeM);
+                    isCheckT(Laravel, bmeL);
+                    isCheckT(Oracle, bmeO);
+                }
+
+                function isCheckT(tech, bme)
+                {
+                    if(tech.checked)
+                    {
+                        for(let i=0;i<bme.length;i++)
+                            bme[i].disabled = false;
+                    }
+                    else
+                    {
+                        for(let i=0;i<bme.length;i++)
+                            bme[i].disabled = true;
+                    }
+                }
+
+///Form Validations -- Client Side
+      function validateForm() 
+      {
+
+            let fname = document.getElementById("FirstName");
+            let lname = document.getElementById("LastName");
+            let dsg = document.getElementById("Designation");
+            let email_id = document.getElementById("Email_ID");
+            let add1 = document.getElementById("Add1");
+            let add2 = document.getElementById("Add2");
+            let city = document.getElementById("City");
+            let ph_no = document.getElementById("Phone_No");
+            let state = document.getElementById("State");
+            let gender = document.getElementById("Gender");
+            let zip_code = document.getElementById("Zip_Code");
+            let rel_status = document.getElementById("Rel_Status");
+            let dt = document.getElementById("dt");
+            let mnth = document.getElementById("mnth");
+            let yr = document.getElementById("yr");
+
+            let ref_C = document.getElementById("RefContact_No");
+
+
+
+            let board = document.getElementById("Board");
+            let course = document.getElementById("Course");
+            let Passing_Yr = document.getElementById("Passing_Yr");
+            let Percentage = document.getElementById("Percentage");
+
+            // let objarr = [{"col" : ""}]
+            
+            let x1 = document.forms["form"]["FirstName"].value;
+            let x2 = document.forms["form"]["LastName"].value;
+            let x3 = document.forms["form"]["Designation"].value;
+            let x4 = document.forms["form"]["Email_ID"].value;
+            let x5 = document.forms["form"]["Add1"].value;
+            let x6 = document.forms["form"]["Add2"].value;
+            let x7 = document.forms["form"]["City"].value;
+            let x8 = document.forms["form"]["Phone_No"].value;
+            // let x9 = document.forms["form"]["State"].value;
+            let x10 = document.forms["form"]["Male"];
+            let x102= document.forms["form"]["Female"];         
+            let x11 = document.forms["form"]["Zip_Code"].value;
+            let x13 = document.forms["form"]["dt"].value;
+            let x14 = document.forms["form"]["mnth"].value;
+            let x15 = document.forms["form"]["yr"].value;
+            
+
+            // let x12 = document.forms["form"]["Rel_Status"].value;
+            // let x13 = document.forms["form"]["DOB"].value;
+
+
+            let err1 = document.getElementById("spFirstName");
+            let cnt=0
+            if (x1 == "") {
+                err1.innerHTML="&nbsp;&nbsp;Name must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++;
+                           
+            }
+
+            let errdt = document.getElementById("spdt");
+            let errmnth = document.getElementById("spmnth");
+            let erryr = document.getElementById("spyr");
+
+            if([x13 || x14 || x15] == "")
+            {
+                errdt.innerHTML="&nbsp;&nbsp;DOB must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++;
+                console.log(cnt)
+            }else{
+                errdt.innerHTML=""              
+            }
+            
+
+            let err2 = document.getElementById("spLastName");
+            if (x2 == "") {
+                err2.innerHTML="&nbsp;&nbsp;Surname must be filled out !!! &nbsp;&nbsp;"
+                cnt++
+            }else{
+                err2.innerHTML=""                
+            }
+
+            let err3 = document.getElementById("spDesignation");
+            if (x3 == "") {
+                err3.innerHTML="&nbsp;&nbsp;Designation must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err3.innerHTML=""                
+            }
+            let err4 = document.getElementById("spEmail_ID");
+            if (x4 == "") {
+                err4.innerHTML="&nbsp;&nbsp;Email_ID must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err4.innerHTML=""                
+            }
+            let err5 = document.getElementById("spAdd1");
+            if (x5 == "") {
+                err5.innerHTML="&nbsp;&nbsp;Address-1 must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err5.innerHTML=""                
+            }
+            let err6 = document.getElementById("spAdd2");
+            if (x6 == "") {
+                err6.innerHTML="&nbsp;&nbsp;Address-2 must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err6.innerHTML=""                
+            }
+            let err7 = document.getElementById("spCity");
+            if (x7 == "") {
+                err7.innerHTML="&nbsp;&nbsp;City must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err7.innerHTML=""                
+            }
+            let err8 = document.getElementById("spPhone_No");
+            if (x8 == "") {
+                err8.innerHTML="&nbsp;&nbsp;Phone_No must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err8.innerHTML=""                
+            }
+
+            let err9 = document.getElementById("spState");
+            if(state.value==""){
+                err9.innerHTML="&nbsp;&nbsp;State must be selected !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err9.innerHTML=""
+            }
+        
+            let errrel = document.getElementById("spRel_Status");
+            if(rel_status.value=="")
+            {
+                errrel.innerHTML="&nbsp;&nbsp;Relationship Status must be selected !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                errrel.innerHTML=""
+            }
+            // for(let i=0;i<state.length;i++)
+            // {
+            //     let childrens = state[i].children;
+            //     for(let child of childrens)
+            //     {
+            //         console.log(child)
+            //         if(child.selected)
+            //         {
+            //             err9.innerHTML=""
+            //         }
+            //         else
+            //         {
+            //             err9.innerHTML="&nbsp;&nbsp;State must be filled out !!!  &nbsp;&nbsp;  "
+            //             cnt++
+            //         }
+            //     }
+            // }
+            //REFERENCE CONTACT NO Validation
+
+            // let err_ref_C = document.getElementById("spRefC")
+            //     if(isNaN(ref_C.value)||ref_C.value.length!=10)
+            //     {
+            //         console.log("Invalid Contact Number")
+            //         err_ref_C.innerHTML = "Enter a valid Contact Number";
+            //         cnt++;
+            //     }
+            //     else
+            //     {
+            //         // alert("Not a valid Phone Number");
+            //         console.log("Valid Phone Number")
+
+            //         err_ref_C.innerHTML="";
+            //     }
+                
+
+            //     if(isNaN(x11)||x11.length!      rws[i].value = 0;
+            //     }
+            //     else
+            //     {
+            let err10 = document.getElementById("spGender");
+            if (!(x10.checked||x102.checked)) {
+                err10.innerHTML="&nbsp;&nbsp;Gender must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err10.innerHTML=""
+            
+            }
+            let err11 = document.getElementById("spZip_Code");
+            if (x11 == "") {
+                err11.innerHTML="&nbsp;&nbsp;Zip_Code must be filled out !!!  &nbsp;&nbsp;  "
+                cnt++
+            }else{
+                err11.innerHTML=""                
+            }        
+                // return checkPhone();
+            var phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+                if(ph_no.value.match(phoneNum)) {
+                       cnt=cnt
+                }
+                else {
+                    document.getElementById("Phone_No").className = document.getElementById("Phone_No").className + " error";
+                    cnt++;
+                }
+
+                var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+                if (x4.match(validRegex)) 
+                {
+
+                    // alert("Valid email address!");
+
+                    document.form.Email_ID.focus();
+                }   
+                else {
+
+                    alert("Invalid email address!");
+
+                    document.form.Email_ID.focus();
+
+                    cnt++;
+                }
+
+                // var reg_ph = /^\d{10}$/;
+                if(isNaN(x8)||x8.length!=10)
+                {
+                    console.log("Invalid Phone Number")
+                    err8.innerHTML = "Enter a valid Phone Number";
+                    cnt++;
+                }
+                else
+                {
+                    // alert("Not a valid Phone Number");
+                    console.log("Valid Phone Number")
+
+                    err8.innerHTML="";
+                }
+
+/////REFERENCE CONTACT NO Validation
+
+            // let err_ref_C = document.getElementById("spRefC")
+            //     if(isNaN(ref_C.value)||ref_C.value.length!=10)
+            //     {
+            //         console.log("Invalid Contact Number")
+            //         err_ref_C.innerHTML = "Enter a valid Contact Number";
+            //         cnt++;
+            //     }
+            //     else
+            //     {
+            //         // alert("Not a valid Phone Number");
+            //         console.log("Valid Phone Number")
+
+            //         err_ref_C.innerHTML="";
+            //     }
+                
+
+            //     if(isNaN(x11)||x11.length!      rws[i].value = 0;
+            //     }
+            //     else
+            //     {
+            //         // alert("Not a valid Phone Number");
+            //         console.log("Valid Zip Code")
+
+            //         err11.innerHTML="";
+            //     }
+
+
+            //     ///Languages Known Validation
+
+                
+
+            // //     let err_board = document.getElementById("spBoard");
+            // // if(board.value==""){
+            // //     err_board.innerHTML="&nbsp;&nbsp;Board must be selected !!!  &nbsp;&nbsp;  "
+            // //     cnt++
+            // // }else{
+            // //     err_board.innerHTML=""
+            // // }
+
+            // let err_board = document.getElementById("spBoard");
+            // let err_psyr = document.getElementById("spPassing_Yr");
+            // let err_pr = document.getElementById("spPercentage");
+            // if(board.value!=="")
+            // {
+            //      if(Passing_Yr.value == "") 
+            //     {
+            //          err_psyr.innerHTML="&nbsp;&nbsp;Address-1 must be filled out !!!  &nbsp;&nbsp;  "
+            //           cnt++
+            //     }else{//REFERENCE CONTACT NO Validation
+
+            // let err_ref_C = document.getElementById("spRefC")
+            //     if(isNaN(ref_C.value)||ref_C.value.length!=10)
+            //     {
+            //         console.log("Invalid Contact Number")
+            //         err_ref_C.innerHTML = "Enter a valid Contact Number";
+            //         cnt++;
+            //     }
+            //     else
+            //     {
+            //         // alert("Not a valid Phone Number");
+            //         console.log("Valid Phone Number")
+
+            //         err_ref_C.innerHTML="";
+            //     }
+                
+
+            //     if(isNaN(x11)||x11.length!      rws[i].value = 0;
+            //     }//REFERENCE CONTACT NO Validation
+
+            // let err_ref_C = document.getElementById("spRefC")
+            //     if(isNaN(ref_C.value)||ref_C.value.length!=10)
+            //     {
+            //         console.log("Invalid Contact Number")
+            //         err_ref_C.innerHTML = "Enter a valid Contact Number";
+            //         cnt++;
+            //     }
+            //     else
+            //     {
+            //         // alert("Not a valid Phone Number");
+            //         console.log("Valid Phone Number")
+
+            //         err_ref_C.innerHTML="";
+            //     }
+                
+
+            //     if(isNaN(x11)||x11.length!      rws[i].value = 0;
+            //     }
+            //     else
+            //     {
+            //     else
+            //     {
+            //     err_psyr.innerHTML=""                
+            //     }
+
+            //     if (Percentage.value == "") 
+            //     {
+            //          err_pr.innerHTML="&nbsp;&nbsp;Address-1 must be filled out !!!  &nbsp;&nbsp;  "
+            //           cnt++
+            //     }else{
+            //     err_pr.innerHTML=""                
+            //     }
+            //     err_board.innerHTML=""
+            // } else{
+            //     err_board.innerHTML="Invalid";
+            //     cnt++;//REFERENCE CONTACT NO Validation
+
+            // let err_ref_C = document.getElementById("spRefC")
+            //     if(isNaN(ref_C.value)||ref_C.value.length!=10)
+            //     {
+            //         console.log("Invalid Contact Number")
+            //         err_ref_C.innerHTML = "Enter a valid Contact Number";
+            //         cnt++;
+            //     }
+            //     else
+            //     {
+            //         // alert("Not a valid Phone Number");
+            //         console.log("Valid Phone Number")
+
+            //         err_ref_C.innerHTML="";
+            //     }
+                
+
+            //     if(isNaN(x11)||x11.length!      rws[i].value = 0;
+            //     }
+            //     else
+            //     {
+
+
+            // let RefN = document.getElementById("RefName");
+            //     let RefC = document.getElementById("RefContact_No");
+            //     let RefR = document.getElementById("RefRelation");
+            //     let err_refc = document.getElementById("spRefC");
+
+            //     if(RefN != "")
+            //     {
+            //         checkref();
+            //     }
+                
+
+                
+                
+            //     function checkref()
+            //     {
+            //         if (RefC.value == "") {
+            //             err_refc.innerHTML="&nbsp;&nbsp;Contact_No must be filled out !!!  &nbsp;&nbsp;  "
+            //             cnt++
+                       
+            //         }else{
+            //             err_refc.innerHTML=""    
+         
+            //         }    
+            //         // if (RefC.value == "") {
+            //         //     err_refc.innerHTML="&nbsp;&nbsp;Contact_No must be filled out !!!  &nbsp;&nbsp;  "
+            //         //     cnt++
+            //         // }else{
+            //         //     err_refc.innerHTML=""                
+            //         // }    
+            //     }
+
+            if(cnt!=0){
+                console.log("False: "+cnt)
+                return false
+            }else{
+                return true
+            }
+            return false
+        }       
+
+    //   form.addEventListener(
+    //   "focus",
+    //   (event) => {
+    //       event.target.style.background = "#CCCCFF";
+    //   },
+    //   true,
+    //   );
+
+    //   form.addEventListener(
+    //   "blur",
+    //   (event) => {
+    //       event.target.style.background = "";
+    //   },
+    //   true,
+    //   );
+
+    var now = new Date();
+    var datetime = now.toLocaleString();
+  
+    // Insert date and time into HTML
+    // document.getElementById("datetime").innerHTML = datetime;
+
+    // document.getElementById("datetime").style.color = "violet";
+    // document.getElementById("datetime").style.marginLeft = "45%";
+  
+
+
+    function rst()
+    {
+      alert("Form is successfully Reset !!");
+    }
+    function sub()
+    {
+      alert("Form is successfully Submitted on "+ datetime);
+    }
+
+    function testResults (form) {
+      var inputValue = form.FirstName.value;
+      alert ("Hey " + inputValue);
+  }
+
+  const email = document.getElementById("Email_ID");
+  const messagePara = document.getElementById("msg");
+//   email.addEventListener('change', () => {
+//            //messagePara.innerHTML = "Email input changed";
+//            alert("Email Input changed");
+//   });
+    </script>
+</html>
